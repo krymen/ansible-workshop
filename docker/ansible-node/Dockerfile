@@ -6,10 +6,11 @@ RUN apt-get update && apt-get install -y \
     vim \
     --no-install-recommends && rm -r /var/lib/apt/lists/*
 
-RUN echo "#!/bin/sh\nexit 0" > /usr/sbin/policy-rc.d
+RUN mkdir /var/run/sshd
 
 RUN mkdir /root/.ssh
 
 ADD authorized_keys /root/.ssh/authorized_keys
 
-CMD ["/bin/bash"]
+EXPOSE 22
+CMD ["/usr/sbin/sshd", "-D"]
