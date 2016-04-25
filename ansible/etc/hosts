@@ -41,3 +41,5 @@
 # leading 0s:
 
 ## db-[99:101]-node.example.com
+node-1 ansible_host=10.100.192.201 ansible_user=vagrant
+node-2 ansible_host=10.100.192.202 ansible_user=vagrant
